@@ -7,17 +7,20 @@ and a 30-day daily min/max whisker chart.
 
 ## Display layout
 
+The left dial panel is always shown; the right panel alternates between the
+48-hour trace and the 30-day min/max chart on successive refreshes.
+
 ```
 +-----------------+-----------------------------+
-|  barometer dial |  LAST 48 HOURS               |
-|  28 .. 31 inHg  |  pressure trace, dotted grid |
-|     29.87       |  -48h                    now |
-|     INHG        |-----------------------------|
-|  1011.7 HPA     |  30-DAY MIN/MAX              |
-|  ^ RISING       |  daily min/max whisker bars  |
-|  +0.08/3H       |  -30d                    now |
-|  HI 30.01       |                              |
-|  LO 29.24       |                              |
+|  barometer arc  |  LAST 48 HOURS               |
+|  28 .. 31 inHg  |  full-height pressure trace  |
+|                 |                              |
+|     29.87       |   -- alternates each         |
+|     INHG        |      refresh with --         |
+|                 |                              |
+|   ^ RISING      |  30-DAY MIN/MAX              |
+|   +0.08/3H      |  daily min/max whisker bars  |
+|                 |  -48h / -30d             now |
 +-----------------+-----------------------------+
 ```
 
@@ -52,6 +55,11 @@ GP4/GP5 (I2C `0x76`), Waveshare 2.13-inch e-Paper HAT V4 on the SPI pins in
 [pico-pressure-graph README](../pico-pressure-graph/README.md). Set
 `GROUND_ELEVATION_M` to your elevation so the sea-level (QNH) conversion is
 correct.
+
+## Case
+
+[case/](case/) holds the STLs for the 3D-printed enclosure: `baroBodyV3.stl`
+(the body) and `baroFaceV3.stl` (the face plate).
 
 ## Run
 
